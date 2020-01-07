@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        
+        
+        <link rel="stylesheet" type="text/css" href="jquery.fancybox.min.css">  
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+            
+            <div>
+              <img src="c9615b066d9baa5342ea4cc5312b4af7.png" alt="logo" class="logo">   
+            </div>
+            
+            <div >
+                <form>
+                    <input type="text" class="search" v-model="searchBox" placeholder="Search Books">
+                </form>
+            </div>
+            
+            <!-- <div class="flex-container" v-if="filteredBooks.lenght==0">
+                    
+            <div class="flip-card" v-for="book in books">
+                
+                <div class="flip-card-inner">
+                        
+                    <div class="flip-card-front">
+                         <div class="cover">
+                                <a v-bind:href="book.cover" data-fancybox >
+                                <img v-bind:src="book.cover">
+                               </a>   
+                            </div>
+                    </div>
+                    
+                    <div class="flip-card-back">  
+                         <p>{{book.title}}</p>
+                         <p>{{book.description}}</p>
+                         <button type="button">
+                           <a v-bind:href="book.detail" data-fancybox="images">More Info
+                                
+                           </a>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div> 
+        </div> 
+         -->
+
+         <hr>
+
+
+        <div class="flex-container" v-if="filteredBooks.lenght!==0">
+             
+         <div class="flip-card" v-for="book in filteredBooks">
+              
+            <div class="flip-card-inner">
+                                
+                <div class="flip-card-front">
+                     
+                    <div class="cover">
+                       <img v-bind:src="book.cover">
+                    </div>
+                </div>
+                
+                <div class="flip-card-back">
+                                    
+                    <h3>{{book.title}}</h3>
+                     <p>{{book.description}}</p>
+                     <button type="button">
+                        <a v-bind:href="book.detail" data-fancybox="images">More Info
+                     </a>
+                     </button>
+                 </div>
+                            
+                 </div>
+                </div> 
+                </div>  
+            <h2 class="msg "v-if="filteredBooks.length==0">{{message}}</h2>  
+        </div>
+
+        
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="data.js"></script> 
+        <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>       
+    </body>
+</html>
